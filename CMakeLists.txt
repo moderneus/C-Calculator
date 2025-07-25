@@ -11,10 +11,12 @@ add_executable(Calculator
 
     src/Calculator.cpp
     src/Operations.cpp
-    src/Utils.cpp
     src/CommandMap.cpp
     src/History.cpp
-    src/Log.cpp
+    src/Utils/CheckUtils.cpp
+    src/Utils/PrintUtils.cpp
+    src/Utils/RequestUtils.cpp
+    src/Utils/Utils.cpp
 
 )
 

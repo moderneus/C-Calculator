@@ -1,6 +1,8 @@
 #pragma once
-#include "Utils.hpp"
 #include <cmath>
+#include "Utils/CheckUtils.hpp"
+#include "Errors.hpp"
+#include "History.hpp"
 
 class Operation
 {

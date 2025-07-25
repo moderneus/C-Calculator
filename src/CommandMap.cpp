@@ -45,6 +45,12 @@ std::unordered_map<std::string, std::function<void()>> get_commands_map(Operatio
             operation.factorial(value);
         }},
 
+        {UI_SQRT, [&operation]()
+        {
+            auto value = request_value();
+            operation._sqrt(value);
+        }},
+
         {UI_SIN, [&operation]()
         {
             auto value = request_value();
@@ -78,5 +84,10 @@ std::unordered_map<std::string, std::function<void()>> get_commands_map(Operatio
         {
             history.clear();
         }},
+
+        {UI_ADVANCED_CALC, []()
+        {
+            print_advanced_menu();
+        }}
     };
 }

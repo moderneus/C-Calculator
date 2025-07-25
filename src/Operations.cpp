@@ -1,6 +1,4 @@
 #include "Operations.hpp"
-#include "Errors.hpp"
-#include "History.hpp"
 
 constexpr double DEG_TO_RAD = M_PI / 180.0;
 constexpr double RAD_TO_DEG = 180.0 / M_PI;
@@ -76,7 +74,7 @@ void Operation::factorial(double x)
     history.save("FACTORIAL", "!", x, NONE, static_cast<double>(value), false);
 }
 
-void _sqrt(double x)
+void Operation::_sqrt(double x)
 {
     std::cout << "Value equals: " << sqrt(x) << "\n\n";
 
