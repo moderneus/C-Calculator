@@ -5,11 +5,11 @@ History::History() : history_file_name("history.txt") {}
 void History::fill_dynamic_args_store(fmt::dynamic_format_arg_store<fmt::format_context>& arg_store, int line_number, const std::string& operation, const std::string& symbol, const double x, const double y, const double result)
 {
     arg_store.push_back(fmt::arg("line_number", line_number));
-    arg_store.push_back(fmt::arg("operation", operation));
-    arg_store.push_back(fmt::arg("symbol", symbol));
-    arg_store.push_back(fmt::arg("x", x));
-    arg_store.push_back(fmt::arg("y", y));
-    arg_store.push_back(fmt::arg("result", result));  
+    arg_store.push_back(fmt::arg("operation",   operation));
+    arg_store.push_back(fmt::arg("symbol",      symbol));
+    arg_store.push_back(fmt::arg("result",      result));  
+    arg_store.push_back(fmt::arg("x",           x));
+    arg_store.push_back(fmt::arg("y",           y));
 }
 
 std::string History::get_str_format(const std::string& operation, fmt::dynamic_format_arg_store<fmt::format_context>& arg_store)
@@ -22,6 +22,8 @@ std::string History::get_str_format(const std::string& operation, fmt::dynamic_f
     
     else if(operation == "SIN" || operation == "COS" || operation == "TAN" || operation == "CTAN")
         return fmt::vformat("{line_number}. {operation}: {symbol}({x}°) = {result}\n", arg_store); 
+
+    return "NONE_FORMAT_ERROR";
 }
 
 int History::count_lines()
@@ -45,20 +47,12 @@ void History::save(const std::string& operation, const std::string& symbol, cons
 
     fmt::dynamic_format_arg_store<fmt::format_context> arg_store;
     fill_dynamic_args_store(arg_store, line_number, operation, symbol, x, y, result);
-    
+
     if(is_binary)
-    {
-        std::string str = fmt::vformat("{line_number}. {operation}: {x} {symbol} {y} = {result}\n", arg_store);
-        history_file << str;
-
-    }
-
+        history_file << fmt::vformat("{line_number}. {operation}: {x} {symbol} {y} = {result}\n", arg_store);
+    
     else
-    {  
-        std::string str = get_str_format(operation, arg_store);
-        history_file << str;
-
-    }
+        history_file << get_str_format(operation, arg_store);
 }
 
 void History::clear()

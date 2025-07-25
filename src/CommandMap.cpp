@@ -1,6 +1,7 @@
 #include "CommandMap.hpp"
 
 std::array<double, 2> values;
+double value;
 
 #define x values[0]
 #define y values[1]
@@ -9,83 +10,83 @@ std::unordered_map<std::string, std::function<void()>> get_commands_map(Operatio
 {
     return 
     {
-        {UI_ADDITION, [&operation]()
+        {UI::ADDITION, [&operation]()
         {
-            auto values = request_values();
+            values = request_values();
             operation.add(x, y);
         }},
 
-        {UI_SUBTRACTION, [&operation]()
+        {UI::SUBTRACTION, [&operation]()
         {
-            auto values = request_values();
+            values = request_values();
             operation.subtract(x, y);
         }},
 
-        {UI_MULTIPLICATION, [&operation]()
+        {UI::MULTIPLICATION, [&operation]()
         {
-            auto values = request_values();
+            values = request_values();
             operation.multiply(x, y);
         }},
 
-        {UI_DIVISION, [&operation]()
+        {UI::DIVISION, [&operation]()
         {
-            auto values = request_values();
+            values = request_values();
             operation.divide(x, y);
         }},
 
-        {UI_EXPONENTIATION, [&operation]()
+        {UI::EXPONENTIATION, [&operation]()
         {
-            auto values = request_values();
+            values = request_values();
             operation.power(x, y);
         }},
 
-        {UI_FACTORIAL, [&operation]()
+        {UI::FACTORIAL, [&operation]()
         {
-            auto value = request_value();
+            value = request_value();
             operation.factorial(value);
         }},
 
-        {UI_SQRT, [&operation]()
+        {UI::SQRT, [&operation]()
         {
-            auto value = request_value();
+            value = request_value();
             operation._sqrt(value);
         }},
 
-        {UI_SIN, [&operation]()
+        {UI::SIN, [&operation]()
         {
-            auto value = request_value();
+            value = request_value();
             operation._sin(value);
         }},
 
-        {UI_COS, [&operation]()
+        {UI::COS, [&operation]()
         {
-            auto value = request_value();
+            value = request_value();
             operation._cos(value);
         }},
 
-        {UI_TG, [&operation]()
+        {UI::TG, [&operation]()
         {
-            auto value = request_value();
+            value = request_value();
             operation._tan(value);
         }},
 
-        {UI_CTG, [&operation]()
+        {UI::CTG, [&operation]()
         {
-            auto value = request_value();
+            value = request_value();
             operation._ctan(value);
         }},
 
-        {UI_EXIT, []()
+        {UI::EXIT, [&history]()
         {
             std::exit(0);
         }},
 
-        {UI_CLEAR_HISTORY, [&history]()
+        {UI::CLEAR_HISTORY, [&history]()
         {
             history.clear();
         }},
 
-        {UI_ADVANCED_CALC, []()
+        {UI::ADVANCED_CALC, []()
         {
             print_advanced_menu();
         }}

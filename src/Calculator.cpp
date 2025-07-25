@@ -1,7 +1,6 @@
 #include "Utils/PrintUtils.hpp"
 #include "CommandMap.hpp"
 #include "Operations.hpp"
-#include "Errors.hpp"
 #include "History.hpp"
 
 int main() 
@@ -19,7 +18,7 @@ int main()
         std::cout << "Operation number: ";
 
         std::cin >> user_input;
-        user_input = to_lowercase(user_input);
+        to_lowercase(user_input);
 
         auto it = commands.find(user_input);
 

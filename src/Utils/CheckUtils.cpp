@@ -17,6 +17,5 @@ void check_input(const std::string& user_input)
 
 bool is_integer(const double user_value) 
 {
-    double tmp = user_value;
-    return (std::floor(user_value) == tmp);
+    return (std::floor(user_value) == user_value);
 }

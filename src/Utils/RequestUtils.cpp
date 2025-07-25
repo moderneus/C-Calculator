@@ -3,7 +3,7 @@
 std::array<double, 2> request_values() 
 {
     std::cout << "Enter a first value: ";
-    
+
     std::string first_value;
     std::cin >> first_value;
     
@@ -16,8 +16,7 @@ std::array<double, 2> request_values()
     
     check_input(second_value);
 
-    std::array<std::string, 2> values {first_value, second_value};
-    return convert_to_double(values);
+    return {std::stod(first_value), std::stod(second_value)};
 }
 
 double request_value() 

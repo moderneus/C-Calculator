@@ -1,8 +1,11 @@
 #pragma once
 #include <cmath>
 #include "Utils/CheckUtils.hpp"
-#include "Errors.hpp"
+#include "Utils/PrintUtils.hpp"
+#include "Utils/Constants.hpp"
 #include "History.hpp"
+
+using namespace Math;
 
 class Operation
 {
