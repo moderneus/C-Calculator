@@ -19,6 +19,6 @@ inline constexpr const char* UI_TG              = "9";
 inline constexpr const char* UI_CTG             = "10";
 
 inline constexpr const char* UI_EXIT            = "exit";
-inline constexpr const char* UI_CLEAR           = "clear";
+inline constexpr const char* UI_CLEAR_HISTORY   = "clearh";
 
 std::unordered_map<std::string, std::function<void()>> get_commands_map(Operation& operation, History& history);

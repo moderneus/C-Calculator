@@ -3,7 +3,6 @@
 #include "Errors.hpp"
 #include "Utils.hpp"
 #include "History.hpp"
-#include "Log.hpp"
 
 int main() 
 { 
@@ -12,7 +11,7 @@ int main()
     std::string user_input;
     Operation operation;
     History history;
-    
+  
     auto commands = get_commands_map(operation, history);
 
     while(true) 

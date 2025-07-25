@@ -1,5 +1,7 @@
 #include "History.hpp"
 
+History::History() : history_file_name("history.txt") {}
+
 void History::fill_dynamic_args_store(fmt::dynamic_format_arg_store<fmt::format_context>& arg_store, int line_number, const std::string& operation, const std::string& symbol, const double x, const double y, const double result)
 {
     arg_store.push_back(fmt::arg("line_number", line_number));
@@ -7,20 +9,19 @@ void History::fill_dynamic_args_store(fmt::dynamic_format_arg_store<fmt::format_
     arg_store.push_back(fmt::arg("symbol", symbol));
     arg_store.push_back(fmt::arg("x", x));
     arg_store.push_back(fmt::arg("y", y));
-    arg_store.push_back(fmt::arg("result", result));
+    arg_store.push_back(fmt::arg("result", result));  
 }
 
 std::string History::get_str_format(const std::string& operation, fmt::dynamic_format_arg_store<fmt::format_context>& arg_store)
 {
     if(operation == "SQRT")
         return fmt::vformat("{line_number}. {operation}: {symbol}{x} = {result}\n", arg_store);
-
+     
     else if(operation == "FACTORIAL")
         return fmt::vformat("{line_number}. {operation}: {x}{symbol} = {result}\n", arg_store);
-  
+    
     else if(operation == "SIN" || operation == "COS" || operation == "TAN" || operation == "CTAN")
-        return fmt::vformat("{line_number}. {operation}: {symbol}({x}°) = {result}\n", arg_store);
- 
+        return fmt::vformat("{line_number}. {operation}: {symbol}({x}°) = {result}\n", arg_store); 
 }
 
 int History::count_lines()
@@ -49,26 +50,18 @@ void History::save(const std::string& operation, const std::string& symbol, cons
     {
         std::string str = fmt::vformat("{line_number}. {operation}: {x} {symbol} {y} = {result}\n", arg_store);
         history_file << str;
+
     }
 
     else
     {  
         std::string str = get_str_format(operation, arg_store);
         history_file << str;
+
     }
 }
 
 void History::clear()
 {
     std::ofstream history_file(history_file_name);
-}
-
-History::History() : history_file_name("history.txt") 
-{
-    _log.save(__LINE__, __PRETTY_FUNCTION__, false);
-}
-
-History::~History()
-{
-    _log.save(__LINE__, __PRETTY_FUNCTION__, true);
 }

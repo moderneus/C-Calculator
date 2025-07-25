@@ -74,9 +74,9 @@ std::unordered_map<std::string, std::function<void()>> get_commands_map(Operatio
             std::exit(0);
         }},
 
-        {UI_CLEAR, [&history]()
+        {UI_CLEAR_HISTORY, [&history]()
         {
             history.clear();
-        }}
+        }},
     };
 }
