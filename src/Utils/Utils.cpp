@@ -7,6 +7,6 @@ void to_lowercase(std::string& str)
         if(str[i] >= 'A' && str[i] <= 'Z')
         {
             str[i] += 32;
-        }
+        }      
     }
 }

@@ -7,12 +7,13 @@ int main()
 { 
     print_start_menu();
 
-    std::string user_input;
     Operation operation;
     History history;
-  
-    auto commands = get_commands_map(operation, history);
 
+    auto commands = get_commands_map(operation, history);
+    
+    std::string user_input;
+    
     while(true) 
     {   
         std::cout << "Operation number: ";

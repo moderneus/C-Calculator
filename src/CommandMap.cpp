@@ -1,79 +1,76 @@
 #include "CommandMap.hpp"
 
-std::array<double, 2> values;
-double value;
-
-#define x values[0]
-#define y values[1]
-
 std::unordered_map<std::string, std::function<void()>> get_commands_map(Operation& operation, History& history)
 {
+    std::array<double, 2> values;
+    double x, y;
+
     return 
     {
-        {UI::ADDITION, [&operation]()
+        {UI::ADDITION, [&operation, &values, &x, &y]()
         {
-            values = request_values();
+            get_values(values, x, y);
             operation.add(x, y);
         }},
 
-        {UI::SUBTRACTION, [&operation]()
+        {UI::SUBTRACTION, [&operation, &values, &x, &y]()
         {
-            values = request_values();
+            get_values(values, x, y);
             operation.subtract(x, y);
         }},
 
-        {UI::MULTIPLICATION, [&operation]()
+        {UI::MULTIPLICATION, [&operation, &values, &x, &y]()
         {
-            values = request_values();
+            get_values(values, x, y);
             operation.multiply(x, y);
         }},
 
-        {UI::DIVISION, [&operation]()
+        {UI::DIVISION, [&operation, &values, &x, &y]()
         {
-            values = request_values();
+            get_values(values, x, y);
             operation.divide(x, y);
         }},
 
-        {UI::EXPONENTIATION, [&operation]()
+        {UI::EXPONENTIATION, [&operation, &values, &x, &y]()
         {
-            values = request_values();
+            get_values(values, x, y);
             operation.power(x, y);
         }},
 
-        {UI::FACTORIAL, [&operation]()
+        {UI::FACTORIAL, [&operation, &values, &x, &y]()
         {
-            value = request_value();
-            operation.factorial(value);
+            get_value(x);
+            operation.factorial(x);
         }},
 
-        {UI::SQRT, [&operation]()
+        {UI::SQRT, [&operation, &values, &x, &y]()
         {
-            value = request_value();
-            operation._sqrt(value);
+            get_value(x);
+            operation._sqrt(x);
         }},
 
-        {UI::SIN, [&operation]()
+        {UI::SIN, [&operation, &values, &x, &y]()
         {
-            value = request_value();
-            operation._sin(value);
+            get_value(x);
+            operation._sin(x);
         }},
 
-        {UI::COS, [&operation]()
+        {UI::COS, [&operation, &values, &x, &y]()
         {
-            value = request_value();
-            operation._cos(value);
+            get_value(x);
+            operation._cos(x);
         }},
 
-        {UI::TG, [&operation]()
+        {UI::TG, [&operation, &values, &x, &y]()
         {
-            value = request_value();
-            operation._tan(value);
+            get_value(x);
+            operation._tan(x);
         }},
 
-        {UI::CTG, [&operation]()
+        {UI::CTG, [&operation, &values, &x, &y]()
         {
-            value = request_value();
-            operation._ctan(value);
+            get_value(x);
+            operation._ctan(x);
         }},
 
         {UI::EXIT, [&history]()

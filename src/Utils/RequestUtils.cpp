@@ -1,5 +1,17 @@
 #include "Utils/RequestUtils.hpp"
 
+void get_values(std::array<double, 2>& values, double& x, double& y)
+{   
+    values = request_values();
+    x = values[0];
+    y = values[1];
+}
+
+void get_value(double& x)
+{
+    x = request_value();
+}
+
 std::array<double, 2> request_values() 
 {
     std::cout << "Enter a first value: ";
