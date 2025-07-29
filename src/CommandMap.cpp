@@ -7,70 +7,70 @@ std::unordered_map<std::string, std::function<void()>> get_commands_map(Operatio
 
     return 
     {
-        {UI::ADDITION, [&operation, &values, &x, &y]()
+        {UI::ADDITION, [&operation, &history, &values, &x, &y]()
         {
             get_values(values, x, y);
-            operation.add(x, y);
+            operation.add(history, x, y);
         }},
 
-        {UI::SUBTRACTION, [&operation, &values, &x, &y]()
+        {UI::SUBTRACTION, [&operation, &history, &values, &x, &y]()
         {
             get_values(values, x, y);
-            operation.subtract(x, y);
+            operation.subtract(history, x, y);
         }},
 
-        {UI::MULTIPLICATION, [&operation, &values, &x, &y]()
+        {UI::MULTIPLICATION, [&operation, &history, &values, &x, &y]()
         {
             get_values(values, x, y);
-            operation.multiply(x, y);
+            operation.multiply(history, x, y);
         }},
 
-        {UI::DIVISION, [&operation, &values, &x, &y]()
+        {UI::DIVISION, [&operation, &history, &values, &x, &y]()
         {
             get_values(values, x, y);
-            operation.divide(x, y);
+            operation.divide(history, x, y);
         }},
 
-        {UI::EXPONENTIATION, [&operation, &values, &x, &y]()
+        {UI::EXPONENTIATION, [&operation, &history, &values, &x, &y]()
         {
             get_values(values, x, y);
-            operation.power(x, y);
+            operation.power(history, x, y);
         }},
 
-        {UI::FACTORIAL, [&operation, &x]()
+        {UI::FACTORIAL, [&operation, &history, &x]()
         {
             get_value(x);
-            operation.factorial(x);
+            operation.factorial(history, x);
         }},
 
-        {UI::SQRT, [&operation, &x]()
+        {UI::SQRT, [&operation, &history, &x]()
         {
             get_value(x);
-            operation._sqrt(x);
+            operation._sqrt(history, x);
         }},
 
-        {UI::SIN, [&operation, &x]()
+        {UI::SIN, [&operation, &history, &x]()
         {
             get_value(x);
-            operation._sin(x);
+            operation._sin(history, x);
         }},
 
-        {UI::COS, [&operation, &x]()
+        {UI::COS, [&operation, &history, &x]()
         {
             get_value(x);
-            operation._cos(x);
+            operation._cos(history, x);
         }},
 
-        {UI::TG, [&operation, &x]()
+        {UI::TG, [&operation, &history, &x]()
         {
             get_value(x);
-            operation._tan(x);
+            operation._tan(history, x);
         }},
 
-        {UI::CTG, [&operation, &x]()
+        {UI::CTG, [&operation, &history, &x]()
         {
             get_value(x);
-            operation._ctan(x);
+            operation._ctan(history, x);
         }},
 
         {UI::EXIT, []()

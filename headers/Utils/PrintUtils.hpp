@@ -16,4 +16,4 @@ void print_undefined_value_error();
 
 void print_str_format_was_not_found_error();
 
-void print_overflow_warning();
+void print_overflow_error();

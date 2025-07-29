@@ -13,25 +13,25 @@ private:
     double x, y;
 
 public:
-    void add(double x, double y);
+    void add(History& history, double x, double y);
 
-    void subtract(double x, double y);
+    void subtract(History& history, double x, double y);
 
-    void multiply(double x, double y);
+    void multiply(History& history, double x, double y);
 
-    void divide(double x, double y);
+    void divide(History& history, double x, double y);
 
-    void power(double x, double y);
+    void power(History& history, double x, double y);
  
-    void factorial(double x);
+    void factorial(History& history, double x);
 
-    void _sqrt(double x);
+    void _sqrt(History& history, double x);
 
-    void _sin(double x);
+    void _sin(History& history, double x);
 
-    void _cos(double x);
+    void _cos(History& history, double x);
 
-    void _tan(double x);
+    void _tan(History& history, double x);
 
-    void _ctan(double x);
+    void _ctan(History& history, double x);
 };

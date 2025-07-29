@@ -52,7 +52,7 @@ void print_str_format_was_not_found_error()
     std::cerr << "The required string format could not be found.\n\n"; 
 }
 
-void print_overflow_warning()
+void print_overflow_error()
 {
     std::cout << "Warning: Value too large. Cannot compute factorial of numbers greater than 65.\n\n";
 }

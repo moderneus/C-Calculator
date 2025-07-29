@@ -30,6 +30,9 @@ int History::count_lines()
 {
     std::ifstream history_file(history_file_name);
     
+    if(!history_file.is_open())
+        throw std::runtime_error("Failed to open history file.");
+
     int lines = 1;
 
     if(std::filesystem::file_size(history_file_name) == 0)
@@ -74,4 +77,7 @@ void History::save(const std::string& operation, const std::string& symbol, cons
 void History::clear()
 {
     std::ofstream history_file(history_file_name);
+
+    if(!history_file.is_open())
+        throw std::runtime_error("Failed to open history file.");
 }

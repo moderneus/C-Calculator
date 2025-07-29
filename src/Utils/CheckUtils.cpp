@@ -7,12 +7,12 @@ void check_input(const std::string& user_input)
     double x;
 
     if(!(iss >> x))
-        print_invalid_input_error();
+        throw std::runtime_error("Invalid input error.");
 
     char c;
 
     if (iss >> c)
-        print_invalid_input_error();
+        throw std::runtime_error("Invalid input error.");
 }
 
 bool is_integer(const double user_value) 
