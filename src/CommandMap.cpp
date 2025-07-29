@@ -37,43 +37,43 @@ std::unordered_map<std::string, std::function<void()>> get_commands_map(Operatio
             operation.power(x, y);
         }},
 
-        {UI::FACTORIAL, [&operation, &values, &x, &y]()
+        {UI::FACTORIAL, [&operation, &x]()
         {
             get_value(x);
             operation.factorial(x);
         }},
 
-        {UI::SQRT, [&operation, &values, &x, &y]()
+        {UI::SQRT, [&operation, &x]()
         {
             get_value(x);
             operation._sqrt(x);
         }},
 
-        {UI::SIN, [&operation, &values, &x, &y]()
+        {UI::SIN, [&operation, &x]()
         {
             get_value(x);
             operation._sin(x);
         }},
 
-        {UI::COS, [&operation, &values, &x, &y]()
+        {UI::COS, [&operation, &x]()
         {
             get_value(x);
             operation._cos(x);
         }},
 
-        {UI::TG, [&operation, &values, &x, &y]()
+        {UI::TG, [&operation, &x]()
         {
             get_value(x);
             operation._tan(x);
         }},
 
-        {UI::CTG, [&operation, &values, &x, &y]()
+        {UI::CTG, [&operation, &x]()
         {
             get_value(x);
             operation._ctan(x);
         }},
 
-        {UI::EXIT, [&history]()
+        {UI::EXIT, []()
         {
             std::exit(0);
         }},
@@ -81,11 +81,6 @@ std::unordered_map<std::string, std::function<void()>> get_commands_map(Operatio
         {UI::CLEAR_HISTORY, [&history]()
         {
             history.clear();
-        }},
-
-        {UI::ADVANCED_CALC, []()
-        {
-            print_advanced_menu();
         }}
     };
 }

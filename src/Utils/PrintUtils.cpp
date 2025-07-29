@@ -4,26 +4,21 @@ void print_result_and_save_history(History& history, const std::string& operatio
 {
     std::cout << "Value equals: " << result << "\n\n";
 
-    history.save(operation, symbol, x, y, result, is_binary);
+    try
+    {
+        history.save(operation, symbol, x, y, result, is_binary);
+    }
+
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << "\n\n";
+    }
 }
 
 void print_start_menu()
 {
     std::cout <<
-    "You can use 'clearh' to clear history.\n"
-    "You can use 'adv' to get advanced menu.\n\n"
     "Enter a number of operation you want to use:\n"
-    "1. Addition.\n"
-    "2. Subtraction.\n"
-    "3. Multiplication.\n"
-    "4. Division.\n"
-    "5. Exponentiation.\n";
-}
-
-void print_advanced_menu()
-{
-    std::cout <<
-    "\nEnter a number of operation you want to use:\n"
     "1. Addition.\n"
     "2. Subtraction.\n"
     "3. Multiplication.\n"
@@ -50,6 +45,11 @@ void print_invalid_input_error()
 void print_undefined_value_error()
 {
     std::cerr << "Value is undefined.\n\n";
+}
+
+void print_str_format_was_not_found_error()
+{
+    std::cerr << "The required string format could not be found.\n\n"; 
 }
 
 void print_overflow_warning()

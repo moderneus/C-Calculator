@@ -1,4 +1,5 @@
 #pragma once
+#include <cmath>
 
 namespace UI 
 {
@@ -15,7 +16,6 @@ namespace UI
     inline constexpr const char* CTG             = "11";
     inline constexpr const char* EXIT            = "exit";
     inline constexpr const char* CLEAR_HISTORY   = "clearh";
-    inline constexpr const char* ADVANCED_CALC   = "adv";
 }
 
 namespace Math
@@ -23,4 +23,9 @@ namespace Math
     inline constexpr const double MAX_FACTORIAL_INPUT = 65;
     inline constexpr const double DEG_TO_RAD = M_PI / 180.0;
     inline constexpr const double NO_VALUE = 0.0;
+}
+
+namespace Error
+{
+    inline constexpr const char* NONE_FORMAT = "";
 }
