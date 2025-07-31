@@ -1,6 +1,6 @@
 #include "History.hpp"
 
-History::History() : history_file_name("history.txt"), last_change_time(std::filesystem::last_write_time(history_file_name)) {}
+History::History() : history_file_name("history.txt") {}
 
 void History::fill_dynamic_args_store(fmt::dynamic_format_arg_store<fmt::format_context>& arg_store, int line_number, const std::string& operation, const std::string& symbol, const double x, const double y, const double result)
 {
@@ -12,9 +12,15 @@ void History::fill_dynamic_args_store(fmt::dynamic_format_arg_store<fmt::format_
     arg_store.push_back(fmt::arg("y",           y));
 }
 
-std::string History::format_operation_string(const std::string& operation, fmt::dynamic_format_arg_store<fmt::format_context>& arg_store)
+std::string History::format_operation_string(const std::string& operation, fmt::dynamic_format_arg_store<fmt::format_context>& arg_store, double y, bool is_binary)
 {
-    if(operation == "SQRT")
+    if(is_binary && y >= 0)
+        return fmt::vformat("{line_number}. {operation}: {x} {symbol} {y} = {result}\n", arg_store);
+    
+    else if(is_binary && y < 0)
+        return fmt::vformat("{line_number}. {operation}: {x} {symbol} ({y}) = {result}\n", arg_store);
+
+    else if(operation == "SQRT")
         return fmt::vformat("{line_number}. {operation}: {symbol}{x} = {result}\n", arg_store);
      
     else if(operation == "FACTORIAL")
@@ -33,10 +39,10 @@ int History::count_lines()
     if(!history_file.is_open())
         throw std::runtime_error("Failed to open history file.");
 
-    int lines = 1;
+    int lines = 0;
 
     if(std::filesystem::file_size(history_file_name) == 0)
-        return lines;
+        return ++lines;
 
     else
     {
@@ -46,7 +52,7 @@ int History::count_lines()
             ++lines;
     }
 
-    return lines;
+    return ++lines;
 }
 
 void History::save(const std::string& operation, const std::string& symbol, const double x, const double y, const double result, bool is_binary)
@@ -61,17 +67,13 @@ void History::save(const std::string& operation, const std::string& symbol, cons
     fmt::dynamic_format_arg_store<fmt::format_context> arg_store;
     fill_dynamic_args_store(arg_store, line_number, operation, symbol, x, y, result);
 
-    if(is_binary)
-        history_file << fmt::vformat("{line_number}. {operation}: {x} {symbol} {y} = {result}\n", arg_store);
+    std::string formated_str = format_operation_string(operation, arg_store, y, is_binary);
+
+    if(formated_str == Error::NONE_FORMAT)
+        throw std::runtime_error("The required string format could not be found.");
     
     else
-    {
-        if(format_operation_string(operation, arg_store) == Error::NONE_FORMAT)
-            print_str_format_was_not_found_error();
-        
-        else
-            history_file << format_operation_string(operation, arg_store);
-    }
+        history_file << formated_str;
 }
 
 void History::clear()

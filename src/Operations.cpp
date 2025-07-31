@@ -1,5 +1,7 @@
 #include "Operations.hpp"
 
+using namespace Math;
+
 void Operation::add(History& history, double x, double y) 
 {   
     print_result_and_save_history(history, "ADDITION", "+", x, y, (x + y), true);

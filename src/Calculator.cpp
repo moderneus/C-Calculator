@@ -1,10 +1,12 @@
 #include "Utils/PrintUtils.hpp"
+#include "Utils/Utils.hpp"
 #include "CommandMap.hpp"
 #include "Operations.hpp"
 #include "History.hpp"
 
 int main() 
 { 
+    enable_ANSI();
     print_start_menu();
 
     Operation operation;
@@ -13,10 +15,10 @@ int main()
     auto commands = get_commands_map(operation, history);
     
     std::string user_input;
-    
+
     while(true) 
     {   
-        std::cout << "Operation number: ";
+        fmt::print(fg(fmt::color::gold), "Operation number: ");
 
         std::cin >> user_input;
         to_lowercase(user_input);

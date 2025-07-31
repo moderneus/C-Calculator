@@ -18,14 +18,14 @@ std::array<double, 2> request_values()
     {
         try
         {
-            std::cout << "Enter a first value: ";
+            fmt::print(fg(fmt::color::cyan), "Enter a first value: ");
 
             std::string first_value;
             std::cin >> first_value;
             
             check_input(first_value);
 
-            std::cout << "Enter a second value: ";
+            fmt::print(fg(fmt::color::cyan), "Enter a second value: ");
 
             std::string second_value;
             std::cin >> second_value;
@@ -37,7 +37,7 @@ std::array<double, 2> request_values()
 
         catch(const std::exception& e)
         {
-            std::cerr << e.what() << "\n\n";
+            fmt::print(fg(fmt::color::red), "{}\n\n", e.what());
         }
     }
 }
@@ -48,7 +48,7 @@ double request_value()
     {
         try
         {
-            std::cout << "Enter a value: ";
+            fmt::print(fg(fmt::color::cyan), "Enter a value: ");
 
             std::string value;
             std::cin >> value;

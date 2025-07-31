@@ -29,3 +29,4 @@ namespace Error
 {
     inline constexpr const char* NONE_FORMAT = "";
 }
+
