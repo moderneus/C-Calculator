@@ -122,7 +122,6 @@ History cleared.
 
 ## Commands
 
-------------------------------------------
 | Command      | Description             |
 |--------------|-------------------------|
 | 1            | Addition                |
@@ -138,7 +137,6 @@ History cleared.
 | 11           | Ctan                    |
 | clear        | Clear history file      |
 | exit         | Exit calculator         |
-------------------------------------------
 
 ---
 
