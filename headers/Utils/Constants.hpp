@@ -1,5 +1,6 @@
 #pragma once
 #include <cmath>
+#include <cstdint>
 
 namespace UI 
 {
@@ -15,7 +16,7 @@ namespace UI
     inline constexpr const char* TG              = "10";
     inline constexpr const char* CTG             = "11";
     inline constexpr const char* EXIT            = "exit";
-    inline constexpr const char* CLEAR_HISTORY   = "clearh";
+    inline constexpr const char* CLEAR_HISTORY   = "clear";
 }
 
 namespace Math
@@ -30,3 +31,12 @@ namespace Error
     inline constexpr const char* NONE_FORMAT = "";
 }
 
+namespace ASCII
+{
+    inline constexpr const int ASCII_CASE_DIFF = 32;
+}
+
+namespace File
+{
+    inline constexpr const std::uintmax_t EMPTY_SIZE = 0;
+}

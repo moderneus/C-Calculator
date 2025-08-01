@@ -2,13 +2,18 @@
 
 void to_lowercase(std::string& str)
 {
-    for(int i = 0; i < str.size(); ++i)
+    for(char& c : str)
     {
-        if(str[i] >= 'A' && str[i] <= 'Z')
+        if(c >= 'A' && c <= 'Z')
         {
-            str[i] += 32;
+            c += ASCII::ASCII_CASE_DIFF;
         }      
     }
+}
+
+bool is_empty(const std::filesystem::path& path)
+{
+    return (std::filesystem::file_size(path) == File::EMPTY_SIZE); 
 }
 
 void enable_ANSI()

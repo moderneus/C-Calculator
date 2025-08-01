@@ -8,7 +8,7 @@ void print_result_and_save_history(History& history, const std::string& operatio
     {
         history.save(operation, symbol, x, y, result, is_binary);
     }
-
+    
     catch(const std::exception& e)
     {
         fmt::print(fg(fmt::color::red), "{}\n\n", e.what());
@@ -26,11 +26,11 @@ void print_start_menu()
     "4. Division.\n"
     "5. Exponentiation.\n"
     "6. Factorial.\n"
-    "7. SQRT\n"
-    "8. Sin(x)\n"
-    "9. Cos(x)\n"
-    "10. Tan(x)\n"
-    "11. Ctg(x)\n\n");
+    "7. SQRT.\n"
+    "8. Sin(x).\n"
+    "9. Cos(x).\n"
+    "10. Tan(x).\n"
+    "11. Ctg(x).\n\n");
 }
 
 void print_division_by_zero_error()

@@ -1,10 +1,9 @@
 #pragma once
-#include <cmath>
-#include <cassert>
 #include "Utils/CheckUtils.hpp"
 #include "Utils/PrintUtils.hpp"
 #include "Utils/Constants.hpp"
 #include "History.hpp"
+#include <cmath>
 
 class Operation
 {

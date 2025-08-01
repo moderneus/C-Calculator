@@ -41,7 +41,7 @@ int History::count_lines()
 
     int lines = 0;
 
-    if(std::filesystem::file_size(history_file_name) == 0)
+    if(is_empty(history_file_name))
         return ++lines;
 
     else
