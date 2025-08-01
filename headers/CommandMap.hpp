@@ -1,5 +1,6 @@
 #pragma once
 #include "Utils/RequestUtils.hpp"
+#include "Utils/PrintUtils.hpp"
 #include "Utils/Constants.hpp"
 #include "Operations.hpp"
 #include "History.hpp"

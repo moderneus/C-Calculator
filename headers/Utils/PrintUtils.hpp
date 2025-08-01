@@ -9,6 +9,8 @@ void print_result_and_save_history(History& history, const std::string& operatio
 
 void print_start_menu();
 
+void print_history_cleared();
+
 void print_division_by_zero_error();
 
 void print_invalid_input_error();

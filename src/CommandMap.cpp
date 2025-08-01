@@ -81,6 +81,7 @@ std::unordered_map<std::string, std::function<void()>> get_commands_map(Operatio
         {UI::CLEAR_HISTORY, [&history]()
         {
             history.clear();
+            print_history_cleared();
         }}
     };
 }

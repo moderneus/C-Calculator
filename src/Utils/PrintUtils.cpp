@@ -33,6 +33,11 @@ void print_start_menu()
     "11. Ctg(x).\n\n");
 }
 
+void print_history_cleared()
+{
+    fmt::print(fg(fmt::color::purple), "History cleared.\n\n");
+}
+
 void print_division_by_zero_error()
 {
     fmt::print(fg(fmt::color::red), "Cannot divide by zero.\n\n");
@@ -52,3 +57,4 @@ void print_overflow_error()
 {
     fmt::print(fg(fmt::color::red), "Value is too large.\n\n");
 }
+
