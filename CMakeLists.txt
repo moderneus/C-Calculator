@@ -17,6 +17,7 @@ add_executable(Calculator
     src/Utils/PrintUtils.cpp
     src/Utils/RequestUtils.cpp
     src/Utils/Utils.cpp
+    ico/Win98calc.rc
 
 )
 

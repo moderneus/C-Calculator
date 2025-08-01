@@ -18,7 +18,7 @@ void print_result_and_save_history(History& history, const std::string& operatio
 void print_start_menu()
 {
     fmt::print(fg(fmt::color::white),
-    "The history of your calculations is saved in the file history.txt. To clear it, enter the command 'clearh'.\n\n"
+    "The history of your calculations is saved in the file history.txt. To clear it, enter the command 'clear'.\n\n"
     "Enter a number of operation you want to use:\n"
     "1. Addition.\n"
     "2. Subtraction.\n"
